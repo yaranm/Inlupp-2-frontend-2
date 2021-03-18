@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,65 +8,91 @@
     <title>Fotball</title>
     <!-- Add this to <head> -->
 
-<!-- Load required Bootstrap and BootstrapVue CSS -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
 
-<!-- Load polyfills to support older browsers -->
-<script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+    <!-- Load polyfills to support older browsers -->
+    <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+        crossorigin="anonymous"></script>
 
-<!-- Load Vue followed by BootstrapVue -->
-<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
-<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
 
-<!-- Load the following for BootstrapVueIcons support -->
-<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
 
 </head>
+
 <body>
-    
+
     <div id="app">
-        <div>
-            <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" visible no-header no-close-on-esc shadow>
-              <template #default="{ hide }">
-                <div class="p-3">
-                  <h4 id="sidebar-no-header-title">Fotboll</h4>
-                  <nav class="mb-3">
-                    <b-nav vertical>
-                      <b-nav-item active @click="">Serie A</b-nav-item>
-                      <b-nav-item href="#link-1" @click="">La Liga</b-nav-item>
-                      <b-nav-item href="#link-2" @click="">Premier League</b-nav-item>
-                    </b-nav>
-                  </nav>
-                  
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-              </template>
-            </b-sidebar>
-          </div>
+            </div>
+        </nav>
 
-          
-        <div v-for="post in posts" :key="post.id" class="theme-default-content content__default">
-            <!--  : de teckenet står för v-bind-->
-            <b-card
-              :title="post.title"
-              :img-src="post.thumbnail"
-              img-alt="Image"
-              img-top
-              tag="article"
-              style=""
-              class="mb-2"
-            >
-              <b-card-text>
-                {{ post.body }}
-              </b-card-text>
-          
-              <b-button href="#" variant="primary">Go somewhere</b-button>
-            </b-card>
-          </div>
-    </div>
+        <div class="container">
 
-    <!---->
-    <script src="script.js"></script>
+            <div class="row">
+
+                <div class="col-lg-3">
+
+                    <h1 class="my-4">Fotboll</h1>
+                    <div class="list-group">
+                        <a href="/index.html" class="list-group-item">All</a> 
+                        <a href="/laliga.html" class="list-group-item">La Liga</a>
+                        <a href="/seriea.html" class="list-group-item">Serie A</a>
+                        <a href="/premierleague.html" class="list-group-item">Premier League</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div v-for="post in posts" :key="post.id"
+                    class="theme-default-content content__default col-lg-4 col-md-6 m-4">
+                    <!--  : de teckenet står för v-bind-->
+<!--visa alla 3 ligor--><b-card  :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
+                        class="mb-2">
+                        <b-card-text>
+                            {{ post.body }}
+                        </b-card-text>
+<!-- match.html -->
+                        <b-button href="`/match.html?id=${post.id}`" variant="primary">Go somewhere</b-button>
+                    </b-card>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <script src="script.js"></script>
 
 </body>
+
 </html>
