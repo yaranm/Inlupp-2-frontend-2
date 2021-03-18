@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotball</title>
+    <!-- Add this to <head> -->
+
+<!-- Load required Bootstrap and BootstrapVue CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+<!-- Load polyfills to support older browsers -->
+<script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+<!-- Load Vue followed by BootstrapVue -->
+<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+<!-- Load the following for BootstrapVueIcons support -->
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        <div>
+            <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" visible no-header no-close-on-esc shadow>
+              <template #default="{ hide }">
+                <div class="p-3">
+                  <h4 id="sidebar-no-header-title">Fotboll</h4>
+                  <nav class="mb-3">
+                    <b-nav vertical>
+                      <b-nav-item active @click="">Serie A</b-nav-item>
+                      <b-nav-item href="#link-1" @click="">La Liga</b-nav-item>
+                      <b-nav-item href="#link-2" @click="">Premier League</b-nav-item>
+                    </b-nav>
+                  </nav>
+                  
+                </div>
+              </template>
+            </b-sidebar>
+          </div>
+
+          
+        <div v-for="post in posts" :key="post.id" class="theme-default-content content__default">
+            <!--  : de teckenet står för v-bind-->
+            <b-card
+              :title="post.title"
+              :img-src="post.thumbnail"
+              img-alt="Image"
+              img-top
+              tag="article"
+              style=""
+              class="mb-2"
+            >
+              <b-card-text>
+                {{ post.body }}
+              </b-card-text>
+          
+              <b-button href="#" variant="primary">Go somewhere</b-button>
+            </b-card>
+          </div>
+    </div>
+
+    <!---->
+    <script src="script.js"></script>
+
+</body>
+</html>
