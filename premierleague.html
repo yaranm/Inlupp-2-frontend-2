@@ -75,10 +75,10 @@
             </div>
 
             <div class="row">
-                <div v-for="post in posts" :key="post.id"
+                <div v-for="post in posts" :key="post.id" v-if="post.competition.id == 15"
                     class="theme-default-content content__default col-lg-4 col-md-6 m-4">
                     <!--  : de teckenet står för v-bind-->
-                    <b-card v-if="post.competition.id == 15" :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
+                    <b-card  :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
                         class="mb-2">
                         <b-card-text>
                             {{ post.body }}

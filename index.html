@@ -64,7 +64,7 @@
 
                     <h1 class="my-4">Fotboll</h1>
                     <div class="list-group">
-                        <a href="/index.html" class="list-group-item">All</a> 
+                        <a href="/index.html" class="list-group-item">All</a>
                         <a href="/laliga.html" class="list-group-item">La Liga</a>
                         <a href="/seriea.html" class="list-group-item">Serie A</a>
                         <a href="/premierleague.html" class="list-group-item">Premier League</a>
@@ -76,15 +76,22 @@
 
             <div class="row">
                 <div v-for="post in posts" :key="post.id"
+                    v-if="post.competition.id == 14 || post.competition.id == 13 || post.competition.id == 15"
                     class="theme-default-content content__default col-lg-4 col-md-6 m-4">
                     <!--  : de teckenet står för v-bind-->
-<!--visa alla 3 ligor--><b-card  :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
+                    <!--visa alla 3 ligor-->
+                    <b-card :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
                         class="mb-2">
                         <b-card-text>
-                            {{ post.body }}
+                            
+
                         </b-card-text>
-<!-- match.html -->
-                        <b-button href="`/match.html?id=${post.id}`" variant="primary">Go somewhere</b-button>
+
+                        {{post.embed}}
+
+
+                        <!-- match.html -->
+                        <b-button href="/match.html?id={{post.id}}" variant="primary">Go somewhere</b-button>
                     </b-card>
                 </div>
             </div>
