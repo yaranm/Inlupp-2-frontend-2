@@ -87,11 +87,11 @@
 
                         </b-card-text>
 
-                        {{post.embed}}
+                      
 
 
                         <!-- match.html -->
-                        <b-button href="/match.html?id={{post.id}}" variant="primary">Go somewhere</b-button>
+                        <b-button href="/match.html" variant="primary" v-on:click="addToLS(post.embed)">Go somewhere</b-button>
                     </b-card>
                 </div>
             </div>
