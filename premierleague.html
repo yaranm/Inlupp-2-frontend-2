@@ -36,32 +36,56 @@
 
                 <div class="col-lg-3">
 
-                    <h1 class="my-4">Fotboll</h1>
-                    <div class="list-group">
-                        <a href="/index.html" class="list-group-item">All</a>
-                        <a href="/laliga.html" class="list-group-item">La Liga</a>
-                        <a href="/seriea.html" class="list-group-item">Serie A</a>
-                        <a href="/premierleague.html" class="list-group-item">Premier League</a>
-                    </div>
+                    <h1 class="my-4">Fotboll Highlights</h1>
+                    <b-list-group>
+                        <b-list-group-item>
+                            <b-link href="/index.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/2001.png" width="35" fluid alt="Responsive image"></b-img>
+                                All
+                            </b-link>
+                        </b-list-group-item>
+                        <b-list-group-item>
+                            <b-link href="/laliga.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/laliga.png" width="35" fluid alt="Responsive image"></b-img>
+                                La Liga
+                            </b-link>
+                        </b-list-group-item>
+                        <b-list-group-item>
+                            <b-link href="/seriea.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/seriea.png" width="35" fluid alt="Responsive image"></b-img>
+                                Serie A
+                            </b-link>
+                        </b-list-group-item>
+                        <b-list-group-item>
+                            <b-link href="/premierleague.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/epl.png" width="35" fluid alt="Responsive image"></b-img>
+                                Premier League
+                            </b-link>
+                        </b-list-group-item>
+                    </b-list-group>
 
                 </div>
 
             </div>
 
             <div class="row">
-                <div v-for="post in posts" :key="post.id" v-if="post.competition.id == 15"
-                    class="theme-default-content content__default col-lg-4 col-md-6 m-4">
+                <b-card-group v-for="post in posts" :key="post.id"
+                v-if="post.competition.id == 15"
+                class="theme-default-content content__default col-lg-4 col-md-6 my-4" deck>
                     <!--  : de teckenet står för v-bind-->
+                    <!--visa alla 3 ligor-->
                     <b-card :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
                         class="mb-2">
                         <b-card-text>
                             {{ post.body }}
                         </b-card-text>
+
                         <!-- match.html -->
-                        <b-button href="/match.html" variant="primary" v-on:click="addToLS(post.embed)">Go somewhere
+                        <b-button href="/match.html" variant="primary" v-on:click="addToLS(post.embed)">
+                            Watch stream
                         </b-button>
                     </b-card>
-                </div>
+                </b-card-group>
             </div>
         </div>
 
