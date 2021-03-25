@@ -33,13 +33,9 @@
     <div id="app">
 
 
-        <b-container>
-            <h1 class="my-4">Premier League</h1>
-            <b-row>
-                
+        <b-container class="py-5">
+            <b-row no-gutters>
                 <div class="col-lg-3">
-
-                    
                     <b-list-group>
                         <b-list-group-item>
                             <b-link href="/index.html">
@@ -48,7 +44,6 @@
                                 All
                             </b-link>
                         </b-list-group-item>
-
                         <b-list-group-item>
                             <b-link href="/laliga.html">
                                 <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/laliga.png" width="35"
@@ -56,7 +51,6 @@
                                 La Liga
                             </b-link>
                         </b-list-group-item>
-
                         <b-list-group-item>
                             <b-link href="/seriea.html">
                                 <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/seriea.png" width="35"
@@ -64,7 +58,6 @@
                                 Serie A
                             </b-link>
                         </b-list-group-item>
-
                         <b-list-group-item>
                             <b-link href="/premierleague.html">
                                 <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/epl.png" width="35" fluid
@@ -73,24 +66,18 @@
                             </b-link>
                         </b-list-group-item>
                     </b-list-group>
-
+                </div>
+                <div class="col-lg-9">
+                    <h1 class="mt-5 text-center display-2">Premier League</h1>
                 </div>
             </b-row>
-
-
             <b-row>
-
                 <b-card-group v-for="post in posts" :key="post.id" v-if="post.competition.id == 15"
                     class="theme-default-content content__default col-lg-4 col-md-6 my-4" deck>
                     <!--  : de teckenet står för v-bind-->
                     <!--visa alla 3 ligor-->
-                    <b-card :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
+                    <b-card :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article"
                         class="mb-2">
-                        <b-card-text>
-
-                        </b-card-text>
-
-                        <!-- match.html -->
                         <b-button href="/match.html" variant="primary" v-on:click="addToLS(post.embed)">
                             Watch stream
                         </b-button>
@@ -99,13 +86,7 @@
             </b-row>
         </b-container>
     </div>
-
-
-    <!---->
     <script src="script.js"></script>
-
-
-
 </body>
 
 </html>
