@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotball</title>
+    <link rel="stylesheet" href="style/style.css">
     <!-- Add this to <head> -->
 
     <!-- Load required Bootstrap and BootstrapVue CSS -->
@@ -23,6 +24,8 @@
     <!-- Load the following for BootstrapVueIcons support -->
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
 
+    <script src="https://kit.fontawesome.com/27c9b49aab.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -30,43 +33,79 @@
     <div id="app">
 
 
-        <div class="container">
-
-            <div class="row">
+        <b-container>
+            <h1 class="my-4">La Liga</h1>
+            <b-row>
 
                 <div class="col-lg-3">
 
-                    <h1 class="my-4">Fotboll</h1>
-                    <div class="list-group">
-                        <a href="/index.html" class="list-group-item">All</a>
-                        <a href="/laliga.html" class="list-group-item">La Liga</a>
-                        <a href="/seriea.html" class="list-group-item">Serie A</a>
-                        <a href="/premierleague.html" class="list-group-item">Premier League</a>
-                    </div>
+
+                    <b-list-group>
+                        <b-list-group-item>
+                            <b-link href="/index.html">
+                                All
+                            </b-link>
+                        </b-list-group-item>
+
+                        <b-list-group-item>
+                            <b-link href="/laliga.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/laliga.png" width="35"
+                                    fluid alt="Responsive image"></b-img>
+                                La Liga
+                            </b-link>
+                        </b-list-group-item>
+
+                        <b-list-group-item>
+                            <b-link href="/seriea.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/seriea.png" width="35"
+                                    fluid alt="Responsive image"></b-img>
+                                Serie A
+                            </b-link>
+                        </b-list-group-item>
+
+                        <b-list-group-item>
+                            <b-link href="/premierleague.html">
+                                <b-img src="https://d37kf7rs4g1hyv.cloudfront.net/img/flags/64/epl.png" width="35" fluid
+                                    alt="Responsive image"></b-img>
+                                Premier League
+                            </b-link>
+                        </b-list-group-item>
+                    </b-list-group>
 
                 </div>
+            </b-row>
 
-            </div>
 
-            <div class="row">
-                <div v-for="post in posts" :key="post.id" v-if="post.competition.id == 14"
-                    class="theme-default-content content__default col-lg-4 col-md-6 m-4">
+            <b-row>
+
+                <b-card-group v-for="post in posts" :key="post.id" v-if="post.competition.id == 14"
+                    class="theme-default-content content__default col-lg-4 col-md-6 my-4" deck>
                     <!--  : de teckenet står för v-bind-->
+                    <!--visa alla 3 ligor-->
                     <b-card :title="post.title" :img-src="post.thumbnail" img-alt="Image" img-top tag="article" style=""
                         class="mb-2">
                         <b-card-text>
-                            {{ post.body }}
+
                         </b-card-text>
+
                         <!-- match.html -->
-                        <b-button href="/match.html" variant="primary" v-on:click="addToLS(post.embed)">Go somewhere
+                        <b-button href="/match.html" variant="primary" v-on:click="addToLS(post.embed)">
+                            Watch stream
                         </b-button>
                     </b-card>
-                </div>
-            </div>
-        </div>
+                </b-card-group>
 
-        <!---->
-        <script src="script.js"></script>
+
+                <!-- match.html -->
+
+                </b-card>
+            </b-row>
+        </b-container>
+    </div>
+
+
+    <!---->
+    <script src="script.js"></script>
 
     </div>
 

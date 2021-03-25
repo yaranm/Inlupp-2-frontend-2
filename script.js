@@ -21,7 +21,8 @@ new Vue({
         getEmbed(){
             return localStorage.getItem("embed");
         }
-    }
+    },
+   
     
     
 
